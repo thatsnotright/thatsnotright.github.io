@@ -1,0 +1,10 @@
+# Cards on the home page, in order. `url` and `image` are site paths.
+- title: Frong
+  url: /frong/
+  image: /assets/img/frong-card.jpg
+  note: QWOP, but frog
+  blurb: >-
+    Work a felt frog's legs one muscle group at a time and snatch flies with its tongue.
+    Three ponds to try: solid ground, a pond to leap, or four lily pads.
+  keys: [Q, W, O, P, Space, T]
+  tags: [game, three.js, physics]
