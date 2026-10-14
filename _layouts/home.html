@@ -1,0 +1,17 @@
+---
+layout: default
+---
+<section class="hero">
+  <h1>{{ page.headline | default: site.tagline }}</h1>
+  {% if page.annotation %}<p class="pen hero-note">{{ page.annotation }}</p>{% endif %}
+  <div class="lede">{{ content }}</div>
+</section>
+
+<section id="games" class="games" aria-labelledby="games-title">
+  <h2 id="games-title" class="section-title">Games</h2>
+  <div class="card-grid">
+    {% for project in site.data.projects %}
+      {% include project-card.html project=project %}
+    {% endfor %}
+  </div>
+</section>

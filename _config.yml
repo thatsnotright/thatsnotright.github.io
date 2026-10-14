@@ -1,0 +1,18 @@
+title: thatsnotright
+tagline: Small games, odd experiments, and at least one frog.
+description: Small browser games and odd experiments, starting with Frong, a QWOP-style frog that eats flies.
+url: https://thatsnotright.github.io
+baseurl: ""
+lang: en
+github_username: thatsnotright
+repository: thatsnotright/thatsnotright.github.io
+
+plugins:
+  - jekyll-seo-tag
+
+exclude:
+  - README.md
+  - LICENSE
+  - Gemfile
+  - Gemfile.lock
+  - vendor
