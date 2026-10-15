@@ -7,11 +7,25 @@ layout: default
   <div class="lede">{{ content }}</div>
 </section>
 
+{% assign games = site.data.projects | where_exp: "p", "p.kind != 'tool'" %}
+{% assign tools = site.data.projects | where: "kind", "tool" %}
+
 <section id="games" class="games" aria-labelledby="games-title">
   <h2 id="games-title" class="section-title">Games</h2>
   <div class="card-grid">
-    {% for project in site.data.projects %}
+    {% for project in games %}
       {% include project-card.html project=project %}
     {% endfor %}
   </div>
 </section>
+
+{% if tools.size > 0 %}
+<section id="tools" class="games" aria-labelledby="tools-title">
+  <h2 id="tools-title" class="section-title">Tools</h2>
+  <div class="card-grid">
+    {% for project in tools %}
+      {% include project-card.html project=project %}
+    {% endfor %}
+  </div>
+</section>
+{% endif %}

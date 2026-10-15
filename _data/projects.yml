@@ -1,4 +1,5 @@
 # Cards on the home page, in order. `url` and `image` are site paths.
+# `kind: tool` puts a card under Tools instead of Games; `cta` replaces "Play" on its button.
 - title: Frong
   url: /frong/
   image: /assets/img/frong-card.jpg
@@ -8,3 +9,14 @@
     Three ponds to try: solid ground, a pond to leap, or four lily pads.
   keys: [Q, W, O, P, Space, T]
   tags: [game, three.js, physics]
+
+- title: Creatorium
+  kind: tool
+  cta: Look at
+  url: /creatorium/
+  image: /assets/img/creatorium-card.jpg
+  note: logs itself, mostly
+  blurb: >-
+    A desktop app that watches your footage folder, transcribes every clip, describes what's on
+    screen and drafts a script you can cut to. It all runs on your own machine.
+  tags: [desktop, go, qt6, on-device ai]

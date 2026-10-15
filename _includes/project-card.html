@@ -17,6 +17,6 @@
         {% for t in p.tags %}<li>{{ t }}</li>{% endfor %}
       </ul>
     {% endif %}
-    <a class="button" href="{{ p.url | relative_url }}">Play {{ p.title }} <span aria-hidden="true">&rarr;</span></a>
+    <a class="button" href="{{ p.url | relative_url }}">{{ p.cta | default: "Play" }} {{ p.title }} <span aria-hidden="true">&rarr;</span></a>
   </div>
 </article>

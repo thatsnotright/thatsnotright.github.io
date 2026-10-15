@@ -33,9 +33,20 @@ Then commit `frong/` here and push.
 1. Put the built game in its own folder, e.g. `mygame/`, with relative asset paths.
 2. Add a card to `_data/projects.yml` and a 1200×630 screenshot to `assets/img/`.
 
+## Adding a tool or other project
+
+Set `kind: tool` on its card in `_data/projects.yml` to list it under **Tools** instead of
+**Games**, and `cta` to change the button text (it defaults to "Play"). A project without a
+playable build can link to its own page instead; see `creatorium/index.html`, which uses the
+`.project`, `.shot` and `.steps` styles in `theme.css`.
+
 ## Preview locally
 
-This uses the same image GitHub Pages builds with, so what you see is what deploys:
+Serve the built `_site/` folder, not the repo root. The repo holds Jekyll sources: pages such as
+`index.md` and `creatorium/index.html` only get their layout, styles and image paths when Jekyll
+builds them, so serving the root shows raw front matter and an unstyled page.
+
+Build with the same image GitHub Pages uses, so what you see is what deploys:
 
 ```bash
 mkdir -p _site
@@ -43,7 +54,15 @@ docker run --rm --user "$(id -u):$(id -g)" -e HOME=/tmp \
   -e GITHUB_WORKSPACE=/gh -e INPUT_SOURCE=src -e INPUT_DESTINATION=out \
   -v "$PWD":/gh/src -v "$PWD/_site":/gh/out \
   ghcr.io/actions/jekyll-build-pages:v1.0.13
-python3 -m http.server -d _site 4000    # http://localhost:4000
 ```
 
-Or, with Ruby and Bundler: `bundle install && bundle exec jekyll serve`.
+Then serve `_site/` with any static server, for example:
+
+```bash
+(cd _site && python3 -m http.server 4000)    # http://localhost:4000
+```
+
+Run the build again after each change; it doesn't watch for edits.
+
+Or, with Ruby and Bundler, build and serve in one step with live rebuilds:
+`bundle install && bundle exec jekyll serve`.

@@ -1,0 +1,89 @@
+---
+layout: default
+title: Creatorium
+description: A desktop app that watches your footage folder, transcribes every clip, describes what's on screen and drafts a script you can cut to, all on your own machine.
+image: /assets/img/creatorium-card.jpg
+---
+<article class="project">
+  <header class="project-hero">
+    <p class="pen project-status">work in progress · no download yet</p>
+    <h1 class="page-title">Creatorium</h1>
+    <p class="project-lede">
+      A desktop app for people who film a lot and edit a little. Point it at a memory card and it
+      reads every clip, transcribes the talking, describes what's on screen and drafts a script you
+      can <mark>actually cut to</mark>. None of it leaves your machine.
+    </p>
+    <ul class="tags" aria-label="Tags">
+      <li>desktop</li><li>go</li><li>qt6</li><li>on-device ai</li><li>macOS + linux</li>
+    </ul>
+  </header>
+
+  <figure class="shot shot-hero">
+    <img src="{{ '/assets/img/creatorium/script.jpg' | relative_url }}" width="1440" height="900"
+      alt="The script screen: clips in cut order on the left, a scene-by-scene script with narration, quotes and sound effects in the middle, and an on-device assistant suggesting a cut on the right.">
+    <figcaption class="pen">it writes the first draft. you fix it.</figcaption>
+  </figure>
+
+  <section class="project-section" aria-labelledby="pipeline-title">
+    <h2 id="pipeline-title" class="section-title">What happens to a clip</h2>
+    <ol class="steps">
+      <li><b>It gets noticed.</b> Watch a folder or a card. <code>ffprobe</code> reads the codec, length and shoot date, and the clip lands in the week it was shot (<code>2026-W42</code>, say).</li>
+      <li><b>Keyframes.</b> <code>ffmpeg</code> pulls frames for thumbnails and the scrubber.</li>
+      <li><b>Transcription.</b> NVIDIA's Parakeet model runs locally through ONNX Runtime. Every line gets a timestamp and goes into search.</li>
+      <li><b>Scene descriptions.</b> A local vision model writes down what's on screen, so “dog runs into the water” turns up even when nobody said it.</li>
+      <li><b>A script draft.</b> llama.cpp turns transcripts and scenes into a scene-by-scene script. Every draft is a new version, so nothing gets overwritten.</li>
+      <li><b>A cut list.</b> The script becomes an ordered list of clips with suggested in and out points. Drag either end to trim, then export it to your editor: Blender's video sequencer first, others on the list.</li>
+    </ol>
+  </section>
+
+  <section class="project-section" aria-labelledby="tour-title">
+    <h2 id="tour-title" class="section-title">Around the app</h2>
+    <div class="shot-grid">
+      <figure class="shot">
+        <img src="{{ '/assets/img/creatorium/library.jpg' | relative_url }}" width="1440" height="900" loading="lazy"
+          alt="Library: clips grouped by watched folder with transcription status, and a five-stage pipeline panel.">
+        <figcaption class="pen">every clip, and how far along it is</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="{{ '/assets/img/creatorium/clip.jpg' | relative_url }}" width="1440" height="900" loading="lazy"
+          alt="Clip detail: video player, keyframe strip with in and out points, waveform, and a transcript synced to the playhead.">
+        <figcaption class="pen">the transcript follows the playhead</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="{{ '/assets/img/creatorium/cutlist.jpg' | relative_url }}" width="1440" height="900" loading="lazy"
+          alt="Cut list: clips in the suggested order, each with a resizable in and out range over the whole source clip, and export options for video editors.">
+        <figcaption class="pen">drag the ends, then hand it to your editor</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="{{ '/assets/img/creatorium/search.jpg' | relative_url }}" width="1440" height="900" loading="lazy"
+          alt="Search by meaning for 'someone laughing near the water', with matches from transcripts and scene descriptions.">
+        <figcaption class="pen">search what was said, or what was seen</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="{{ '/assets/img/creatorium/duplicates.jpg' | relative_url }}" width="1440" height="900" loading="lazy"
+          alt="Duplicate review comparing three takes of the same walk by resolution, bit rate, sharpness and audio.">
+        <figcaption class="pen">three takes of one walk. keep the good one.</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="{{ '/assets/img/creatorium/welcome.jpg' | relative_url }}" width="1440" height="900" loading="lazy"
+          alt="Welcome screen: a new project named for the current week, model readiness, and recent projects.">
+        <figcaption class="pen">projects are named for the week</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="project-section prose" aria-labelledby="built-title">
+    <h2 id="built-title">Built with</h2>
+    <p>
+      Go all the way down, with a Qt6 interface through <a href="https://github.com/mappu/miqt">miqt</a>.
+      SQLite holds the catalogue, transcripts, script versions and an append-only journal of everything
+      the app did, each entry with a link you can paste back in to jump straight to it. Speech runs on
+      ONNX Runtime and drafts run on llama.cpp. Cloud sync exists, but it's optional.
+    </p>
+    <p>
+      The screenshots here are design mockups for the next version of the interface, filled with
+      made-up footage. The real app is a working Qt6 build that's catching up to them.
+    </p>
+    <p class="pen">no download yet. soon-ish.</p>
+  </section>
+</article>
