@@ -15,8 +15,8 @@
   cta: Look at
   url: /creatorium/
   image: /assets/img/creatorium-card.jpg
-  note: logs itself, mostly
+  note: vlog faster
   blurb: >-
     A desktop app that watches your footage folder, transcribes every clip, describes what's on
-    screen and drafts a script you can cut to. It all runs on your own machine.
+    screen and drafts a script and project. It all runs on your own machine.
   tags: [desktop, go, qt6, on-device ai]
