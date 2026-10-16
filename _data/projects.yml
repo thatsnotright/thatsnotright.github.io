@@ -1,6 +1,7 @@
 # Cards on the home page, in order. `url` and `image` are site paths.
-# `kind: tool` puts a card under Tools instead of Games; `cta` replaces "Play" on its button.
+# `kind: app` puts a card under Apps instead of Games; `cta` replaces "Play" on its button.
 - title: Frong
+  kind: game
   url: /frong/
   image: /assets/img/frong-card.jpg
   note: QWOP, but frog
@@ -20,3 +21,14 @@
     A desktop app that watches your footage folder, transcribes every clip, describes what's on
     screen and drafts a script and project. It all runs on your own machine.
   tags: [desktop, go, qt6, on-device ai]
+
+- title: TwerkIt
+  kind: app
+  url: /twerkit/
+  image: /assets/img/twerkit-card.jpg
+  note: for your actual legs
+  cta: Read about
+  blurb: >-
+    An Android workout app that pulls live heart rate from an Amazfit Helio Ring, plans the week
+    from YouTube workout videos and dumbbell routines, and keeps score by muscle group.
+  tags: [android, flutter, bluetooth]

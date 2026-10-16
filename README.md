@@ -6,13 +6,14 @@ Source for <https://thatsnotright.github.io>. GitHub Pages builds it with Jekyll
 
 ```
 _config.yml            site title, tagline, URL
-_layouts/              default (page shell), home (hero + game cards), page (prose)
+_layouts/              default (page shell), home (hero + game and app cards), page (prose; `wide: true` for screenshots)
 _includes/             head, header, footer, project-card
-_data/projects.yml     the game cards on the home page, in order
+_data/projects.yml     the cards on the home page, in order (`kind: app` lists one under Apps)
 assets/css/theme.css   the "Red Pen" theme: graph paper, red-pen notes, crooked index cards
 assets/img/            favicon and 1200×630 card / link-preview images
 index.md, 404.md       home and not-found pages
 frong/                 built Frong game (generated; don't edit by hand)
+twerkit/               TwerkIt app page; screenshots in assets/img/twerkit/
 ```
 
 The theme is plain CSS with custom properties (light and dark), so there is no Sass step. Fonts are

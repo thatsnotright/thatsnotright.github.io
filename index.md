@@ -1,7 +1,7 @@
 ---
 layout: home
-headline: Small games, odd experiments, and at least one <mark>frog</mark>.
+headline: Small games, odd experiments, applications I use, and at least one <mark>frong</mark>.
 annotation: (it's mostly the frog)
 image: /assets/img/frong-card.jpg
 ---
-Things that run in your browser and don't quite behave, plus one desktop tool that mostly does. Pick one, press some keys, and see what goes wrong.
+Things that I'm working on, batteries not included.

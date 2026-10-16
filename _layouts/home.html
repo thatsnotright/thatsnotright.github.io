@@ -7,8 +7,9 @@ layout: default
   <div class="lede">{{ content }}</div>
 </section>
 
-{% assign games = site.data.projects | where_exp: "p", "p.kind != 'tool'" %}
+{% assign games = site.data.projects | where: "kind", "game" %}
 {% assign tools = site.data.projects | where: "kind", "tool" %}
+{% assign apps = site.data.projects | where: "kind", "app" %}
 
 <section id="games" class="games" aria-labelledby="games-title">
   <h2 id="games-title" class="section-title">Games</h2>
@@ -29,3 +30,14 @@ layout: default
   </div>
 </section>
 {% endif %}
+{% if apps.size > 0 %}
+<section id="apps" class="games" aria-labelledby="apps-title">
+  <h2 id="apps-title" class="section-title">Apps</h2>
+  <div class="card-grid">
+    {% for project in apps %}
+      {% include project-card.html project=project %}
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+

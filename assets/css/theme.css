@@ -633,6 +633,139 @@ kbd {
   margin-top: 0;
 }
 
+/* A page with room for screenshots beside the words. */
+.page--wide {
+  max-width: var(--max);
+}
+
+.page--wide .page-title,
+.page--wide .prose > :not(.feature) {
+  max-width: 42rem;
+}
+
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.75rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+  font-size: 1rem;
+  color: var(--ink-soft);
+}
+
+.facts strong {
+  color: var(--ink);
+}
+
+/* A section of words with a phone screenshot taped beside it, alternating sides. */
+.feature {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+  margin-block: 4rem;
+}
+
+.feature-text {
+  max-width: 40rem;
+}
+
+.prose .feature h2 {
+  margin-top: 0;
+}
+
+.feature-text ul {
+  padding-left: 1.2rem;
+}
+
+.feature-text li + li {
+  margin-top: 0.35rem;
+}
+
+@media (min-width: 52rem) {
+  .feature {
+    grid-template-columns: minmax(0, 1fr) 16.5rem;
+    gap: 4rem;
+  }
+
+  .feature:nth-of-type(even) {
+    grid-template-columns: 16.5rem minmax(0, 1fr);
+  }
+
+  .feature:nth-of-type(even) .phone {
+    order: -1;
+  }
+}
+
+.phone {
+  position: relative;
+  justify-self: center;
+  width: min(16.5rem, 78%);
+  margin: 0;
+  transform: rotate(1.3deg);
+}
+
+.feature:nth-of-type(even) .phone {
+  transform: rotate(-1.3deg);
+}
+
+.phone img {
+  display: block;
+  width: 100%;
+  border: 7px solid #0b0c10;
+  border-radius: 1.6rem;
+  background: #000;
+  box-shadow: var(--shadow-lift);
+}
+
+.phone::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: -0.7rem;
+  left: 50%;
+  width: 5.5rem;
+  height: 1.4rem;
+  background: var(--tape);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.08);
+  transform: translateX(-50%) rotate(3deg);
+}
+
+/* Two screenshots, overlapping a little, in one taped figure. */
+.phone-pair {
+  display: flex;
+}
+
+.phone-pair img {
+  width: 58%;
+}
+
+.phone-pair img + img {
+  margin: 1.5rem 0 0 -16%;
+  transform: rotate(3deg);
+}
+
+@media (min-width: 52rem) {
+  .feature--pair {
+    grid-template-columns: minmax(0, 1fr) 24rem;
+  }
+
+  .feature--pair:nth-of-type(even) {
+    grid-template-columns: 24rem minmax(0, 1fr);
+  }
+}
+
+.feature--pair .phone {
+  width: min(24rem, 100%);
+}
+
+.phone figcaption {
+  margin-top: 0.8rem;
+  font-size: 1.4rem;
+  text-align: center;
+  transform: rotate(-2deg);
+}
+
 /* ---------- Footer ---------- */
 
 .site-footer {
